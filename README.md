@@ -1,26 +1,41 @@
-📊 Analisador de Vendas (Pipeline de Dados com Python)
+# 📊 Analisador de Vendas — Pipeline de Dados com Python
 
-Este projeto consiste em um sistema de análise de vendas desenvolvido em Python utilizando a biblioteca Pandas.
-A aplicação simula um fluxo real de dados, realizando integração de múltiplas fontes, tratamento, análise e geração de insights através de uma interface interativa no terminal.
+Este projeto consiste em um sistema de análise de vendas desenvolvido em Python utilizando Pandas, com arquitetura modular e foco em boas práticas de engenharia de dados.
+
+A aplicação simula um fluxo real de processamento de dados, desde a ingestão até a geração de insights, com interface interativa via terminal (CLI).
 
 ---
 
 ## 🎯 Objetivo
 
-O objetivo do projeto é praticar e demonstrar:
+O objetivo deste projeto é demonstrar habilidades em:
 
 * Manipulação e análise de dados com Pandas
-* Integração de múltiplos datasets (merge/join)
+* Integração de múltiplas fontes de dados (merge/join)
 * Construção de pipelines de dados
 * Aplicação de regras de negócio
+* Estruturação de código em módulos
 * Desenvolvimento de aplicações interativas (CLI)
-* Estruturação de código com boas práticas
 
 ---
 
-## 📦 Estrutura dos Dados
+## 🧱 Estrutura do Projeto
 
-O sistema simula três fontes de dados:
+```bash
+projeto/
+│
+├── main.py            # Ponto de entrada (interface CLI)
+├── processamento.py   # Preparação e transformação dos dados
+├── analise.py         # Cálculos e métricas
+├── utils.py           # Funções auxiliares
+└── dados/             # (futuro) arquivos CSV
+```
+
+---
+
+## 📦 Fonte de Dados
+
+O sistema simula três conjuntos de dados:
 
 ### 🧾 Vendas
 
@@ -41,16 +56,16 @@ O sistema simula três fontes de dados:
 
 ---
 
-## 🔗 Processamento
+## 🔄 Pipeline de Dados
 
-O pipeline realiza:
+O processamento segue as seguintes etapas:
 
 1. Criação dos DataFrames
-2. Junção dos dados (`merge`)
+2. Junção dos dados com `merge`
 3. Tratamento de valores nulos
-4. Cálculo de métricas (faturamento)
+4. Criação da coluna de faturamento
 5. Classificação de desempenho dos produtos
-6. Análise agregada com `groupby`
+6. Análises agregadas com `groupby`
 
 ---
 
@@ -71,7 +86,7 @@ O sistema permite:
 ### 🐍 Python
 
 * Funções
-* Estrutura de controle
+* Modularização de código
 * CLI interativa
 
 ### 📊 Pandas
@@ -86,8 +101,22 @@ O sistema permite:
 
 ## ▶️ Como executar
 
+1. Clone o repositório:
+
 ```bash
-python nome_do_arquivo.py
+git clone https://github.com/seu-usuario/seu-repositorio.git
+```
+
+2. Acesse a pasta do projeto:
+
+```bash
+cd projeto
+```
+
+3. Execute:
+
+```bash
+python main.py
 ```
 
 ---
@@ -106,16 +135,17 @@ produto_id | nome    | quantidade | preco | categoria | faturamento | Classifica
 ## 📈 Próximos passos
 
 * 📂 Leitura automática de arquivos CSV
-* 💾 Exportação de relatórios (CSV/Excel)
-* 🧱 Estrutura modular do projeto
+* 💾 Exportação de resultados (CSV / Excel)
 * ⚙️ Automação do pipeline
+* 📊 Visualizações com Matplotlib / Seaborn
+* 🧪 Testes automatizados
 
 ---
 
-## 📌 Status
+## 📌 Status do Projeto
 
 🟢 Em evolução
-🚀 Projeto em desenvolvimento contínuo com foco em Data + Engenharia
+🚀 Projeto desenvolvido como parte da evolução para nível profissional em Python (Data + Engenharia)
 
 ---
 
