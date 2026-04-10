@@ -44,7 +44,7 @@ def criar_coluna_classificacao:(df_geral):
 
 def classifica(linha):
   """
-  Classifica o desempenho da venca com baseno faturamento.
+  Classifica o desempenho da venda com base no faturamento.
   """
   if linha['faturamento'] > 1000:
     return "Alto"
