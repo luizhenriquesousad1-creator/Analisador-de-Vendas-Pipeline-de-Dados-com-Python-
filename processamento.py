@@ -14,7 +14,8 @@ def criar_dataframe_geral(df_vendas, df_produtos, df_categoria):
   """Função que cria um dataframe consolidado a partir dos dados de vendas, produtos e categoria,
   realizando juntção (merge) pela coluna 'produto_id'.
 
-  Retorna: DataFrame contendo irformações complestas de cada venda."""
+  Retorna: DataFrame contendo irformações complestas de cada venda.
+  """
   df_geral = df_vendas.merger(df_produtos, on'produto_id').merge(df_categoria, on='produto_id')
   return df_geral
 
@@ -39,3 +40,14 @@ def criar_coluna_classificacao:(df_geral):
   df_geral = df_geral.copy()
   df_geral['classificacao'] = df.apply(classifica, axis=')
   return df_geral
+
+def classifica(linha):
+  """
+  Classifica o desempenho da venca com baseno faturamento.
+  """
+  if linha['faturamento'] > 1000:
+    return "Alto"
+  elif linha[faturamento'] > 500:
+    return "Médio"
+  return "Baixo"
+  
