@@ -11,7 +11,7 @@ def produto_mais_vendido(df_geral):
 
 def produto_mais_lucrativo(df_geral):
   """
-  Cálcula o faturmaneto total por categoria de produto.
+  Calcula o faturmaneto total por categoria de produto.
 
   Parâmetro: df_geral: dataframe contendo od dados de vendas.
   Retorna: tupla com o nome do produto masi lucrativo e seu faturamento total.
@@ -21,7 +21,7 @@ def produto_mais_lucrativo(df_geral):
 
 def calc_faturamento_por_categoria(df_geral):
   """
-  Cálcula o faturamento total por categoria de produto.
+  Calcula o faturamento total por categoria de produto.
   Parâmetro: df_geral: dataframe contendo os dados de vendas.
   Retorna: Série contendo os dados de faturamento por produto
   """
