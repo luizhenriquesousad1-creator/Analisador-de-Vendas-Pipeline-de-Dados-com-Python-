@@ -1,6 +1,6 @@
 import pandas as pd
 
-from processamento import (criar_dataframe, criar_dataframe_geral,
+from processamento import (criar_dataframe_geral,
                            trata_nulos, adiciona_faturamento,
                            criar_coluna_classificacao)
 
@@ -11,12 +11,13 @@ from utils import (organiza, apresenta_resultado)
 
 
 def main():
-    vendas = {'id_vendas':[1,2,3], 'produto_id':[0,1,2],'quantidade':[2,4,6,]}
-    produtos = {'produto_id': [0, 1, 2], 'nome': ['batata', 'cenoura', 'tomate'],
-                'preco': [10, 200, 3000]}
-    categoria = {'produto_id': [0, 1, 2], 'categoria': ['vegetais', 'legumes', 'fruta']}
+    dados = carrega_dados()
 
-    df_vendas, df_produtos, df_categoria = criar_dataframe(vendas, produtos, categoria)
+    if dados is None:
+      print("Falha ao carregar dados.")
+      return
+      
+    df_vendas, df_produtos, df_categoria = dados
 
     df_geral = criar_dataframe_geral(df_vendas, df_produtos, df_categoria)
     df_geral = trata_nulos(df_geral)
@@ -32,11 +33,12 @@ def main():
         print("Produto mais vendido    - [0]")
         print("Produto mais lucrativo  - [1]")
         print("Faturamento por produto - [2]")
+        print("Salvar aquivo           - [3]")
         print("finalizar programa      - [9]")
 
         try:
             opcao = int(input("Digite a opção desejada: "))
-        except:
+        except ValueErro:
             print("Opção inválida, tente novamente.")
 
         if opcao == 0:
@@ -49,6 +51,9 @@ def main():
         elif opcao == 2:
             cat, valor = mostra_faturamento_por_categoria(faturamento)
             print(f"{cat} faturou {valor} reais")
+          
+        elif opcao == 3:
+          df_geral.to_csv('relatorio.csv', index=False)
 
         elif opcao == 9:
             break
