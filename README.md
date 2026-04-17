@@ -1,71 +1,59 @@
 # 📊 Analisador de Vendas — Pipeline de Dados com Python
 
-Este projeto consiste em um sistema de análise de vendas desenvolvido em Python utilizando Pandas, com arquitetura modular e foco em boas práticas de engenharia de dados.
-
-A aplicação simula um fluxo real de processamento de dados, desde a ingestão até a geração de insights, com interface interativa via terminal (CLI).
+Este projeto implementa um pipeline completo de análise de vendas utilizando Python e Pandas, simulando um fluxo real de dados com múltiplas fontes, processamento, análise e interação via terminal.
 
 ---
 
 ## 🎯 Objetivo
 
-O objetivo deste projeto é demonstrar habilidades em:
+O objetivo do projeto é desenvolver habilidades práticas em:
 
 * Manipulação e análise de dados com Pandas
-* Integração de múltiplas fontes de dados (merge/join)
+* Integração de múltiplos datasets (`merge`)
 * Construção de pipelines de dados
 * Aplicação de regras de negócio
 * Estruturação de código em módulos
-* Desenvolvimento de aplicações interativas (CLI)
+* Interação com usuário via CLI
 
 ---
 
-## 🧱 Estrutura do Projeto
+## 🧱 Arquitetura do Projeto
+
+O projeto foi estruturado em módulos para melhor organização e escalabilidade:
 
 ```bash
-projeto/
+src/
 │
-├── main.py            # Ponto de entrada (interface CLI)
-├── processamento.py   # Preparação e transformação dos dados
-├── analise.py         # Cálculos e métricas
-├── utils.py           # Funções auxiliares
-└── dados/             # (futuro) arquivos CSV
+├── main.py           # Controle da aplicação (CLI)
+├── processamento.py  # Transformação e preparação dos dados
+├── analise.py        # Funções de análise
+└── utils.py          # Funções auxiliares (I/O e interface)
 ```
 
 ---
 
-## 📦 Fonte de Dados
+## 📂 Entrada de Dados
 
-O sistema simula três conjuntos de dados:
+O sistema trabalha com três arquivos CSV:
 
-### 🧾 Vendas
+* 📦 **vendas.csv** → quantidade vendida por produto
+* 🏷️ **produtos.csv** → nome e preço
+* 🗂️ **categorias.csv** → categoria do produto
 
-* id_vendas
-* produto_id
-* quantidade
-
-### 🏷️ Produtos
-
-* produto_id
-* nome
-* preco
-
-### 🗂️ Categorias
-
-* produto_id
-* categoria
+Os arquivos são selecionados dinamicamente pelo usuário via interface gráfica.
 
 ---
 
-## 🔄 Pipeline de Dados
+## 🔗 Pipeline de Dados
 
-O processamento segue as seguintes etapas:
+O fluxo de processamento segue as etapas:
 
-1. Criação dos DataFrames
-2. Junção dos dados com `merge`
+1. Leitura dos arquivos CSV
+2. Junção dos dados (`merge`)
 3. Tratamento de valores nulos
-4. Criação da coluna de faturamento
-5. Classificação de desempenho dos produtos
-6. Análises agregadas com `groupby`
+4. Criação de métricas (faturamento)
+5. Classificação de desempenho
+6. Análise agregada
 
 ---
 
@@ -81,71 +69,62 @@ O sistema permite:
 
 ---
 
-## 🧠 Tecnologias e Conceitos
+## 🧠 Tecnologias Utilizadas
 
-### 🐍 Python
-
-* Funções
-* Modularização de código
-* CLI interativa
-
-### 📊 Pandas
-
-* DataFrame
-* `merge` / `join`
-* `groupby`
-* operações vetorizadas
-* `apply()`
+* Python 3
+* Pandas
+* Tkinter (seleção de arquivos)
 
 ---
 
-## ▶️ Como executar
+## ▶️ Como Executar
 
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/luizhenriquesousad1-creator/Analisador-de-Vendas-Pipeline-de-Dados-com-Python-
 ```
 
-2. Acesse a pasta do projeto:
+2. Acesse a pasta:
 
 ```bash
-cd projeto
+cd Analisador-de-Vendas-Pipeline-de-Dados-com-Python-
 ```
 
 3. Execute:
 
 ```bash
-python main.py
+python src/main.py
 ```
+
+4. Selecione os arquivos CSV quando solicitado
 
 ---
 
-## 📌 Exemplo de saída
+## 📌 Exemplo de Saída
 
-```
+```text
 produto_id | nome    | quantidade | preco | categoria | faturamento | Classificação
 0          | batata  | 2          | 10    | vegetais  | 20          | Baixo
-1          | cenoura | 4          | 200   | legumes   | 800         | Medio
+1          | cenoura | 4          | 200   | legumes   | 800         | Médio
 2          | tomate  | 6          | 3000  | fruta     | 18000       | Alto
 ```
 
 ---
 
-## 📈 Próximos passos
+## 📈 Próximas Melhorias
 
-* 📂 Leitura automática de arquivos CSV
-* 💾 Exportação de resultados (CSV / Excel)
-* ⚙️ Automação do pipeline
-* 📊 Visualizações com Matplotlib / Seaborn
-* 🧪 Testes automatizados
+* 💾 Exportação automática de relatórios (CSV/Excel)
+* ⚙️ Execução sem interface gráfica (CLI puro)
+* 📊 Visualizações com gráficos
+* 🔍 Validação de dados de entrada
 
 ---
 
-## 📌 Status do Projeto
+## 📌 Status
 
-🟢 Em evolução
-🚀 Projeto desenvolvido como parte da evolução para nível profissional em Python (Data + Engenharia)
+🟢 Projeto funcional
+🚀 Em evolução contínua
 
 ---
 
