@@ -22,7 +22,7 @@ def criar_dataframe_geral(df_vendas, df_produtos, df_categoria):
 
 def trata_nulos(df_geral):
   """
-  substitui valores nulos por0.
+  substitui valores nulos por 0.
   """
   return df_geral.fillna(0)
 
